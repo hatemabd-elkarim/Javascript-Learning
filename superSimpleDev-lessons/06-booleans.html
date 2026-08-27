@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booleans</title>
+  </head>
+  <body>
+    <script>
+      // comparison operators
+      console.log(3 < 5);
+      console.log(3 == "3"); // true due to coersion
+      console.log(3 === "3"); // false
+      console.log(3 < 5 - 5); // false due to presedence => 3 < 0
+
+      // if statements
+      if (true) {
+        console.log("yes");
+      } else {
+        console.log("no");
+      }
+
+      let age = 18;
+      if (age > 16) {
+        console.log("yes");
+      } else if (age === 16) {
+        console.log("maybe");
+      } else {
+        console.log("no");
+      }
+
+      // logical operators
+      console.log(true && true && true && true && false);
+
+      console.log(false || false || false || false || true);
+
+      console.log(!true);
+
+      // truthy and falsy values
+      // falsy: 0, '', NaN, undefined, null
+
+      console.log(!0); // true
+      console.log("text" / 2); // NaN
+      let var1;
+      console.log(var1); // undefined (no value)
+
+      // shortcut operator
+      const res = true ? "truthy" : "falsy"; // ternary operator ?
+
+      false && console.log("will not be printed"); // guard operator [short-circuit] for falsy  values &&
+
+      const message = false && "hello"; // message = false
+      const message2 = "1" && "hello"; // message = hello
+
+      const currency = "EUR" || "USD"; // default operator ||, currency = 'EUR'
+      const currency2 = undefined || "USD"; // currency = 'USD'
+    </script>
+  </body>
+</html>
