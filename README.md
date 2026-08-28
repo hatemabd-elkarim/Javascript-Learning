@@ -14,7 +14,7 @@ Pace is roughly:
 | Milestone | File                                                             | Lessons Covered | Topics                                                                                                                                                                                     |
 | --------- | ---------------------------------------------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 1         | [`Milestone-1.md`](./superSimpleDev-lessons/docs/Milestone-1.md) | 1–3, 04–06      | JS basics & console, numbers & math, strings, HTML/CSS/JS integration, variables, booleans & if statements                                                                                 |
-| 2         | [`Milestone-2.md`](./Milestone-2.md)                             | 07–10           | Functions (return, parameters, scope), objects (JSON, localStorage, references), the DOM (`querySelector`, events, `innerHTML`/`value`), CSS styling & organizing code into separate files |
+| 2         | [`Milestone-2.md`](./superSimpleDev-lessons/docs/Milestone-2.md) | 07–10           | Functions (return, parameters, scope), objects (JSON, localStorage, references), the DOM (`querySelector`, events, `innerHTML`/`value`), CSS styling & organizing code into separate files |
 
 > More milestones will be added here as the course progresses.
 
