@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Objects</title>
+  </head>
+  <body>
+    <script>
+      const product = {
+        name: "socks",
+        price: "100",
+      };
+      console.log(typeof product);
+      console.log(product.name);
+
+      product.name = "cotton socks";
+      console.log(product.name);
+
+      console.log(product.notDefined);
+
+      product.newProperty = true;
+      console.log(product);
+
+      delete product.newProperty;
+      console.log(product);
+
+      const product2 = {
+        name: "shirt",
+        "delivery-time": "1 day",
+        rating: {
+          // object nesting
+          stars: 4.5,
+          count: 87,
+        },
+
+        fun: function fun1() {
+          // function inside an object is a method
+          console.log("function inside object");
+        },
+      };
+
+      console.log(product2);
+      console.log(product2.name);
+      console.log(product2["name"]);
+      console.log(product2["delivery-time"]); // bracket notation
+
+      console.log(product2.rating.count);
+
+      product2.fun();
+
+      // json is similar to js object but with less features, only "" are allowed, functions are not supported, used to send data between different softwares
+
+      console.log(JSON.stringify(product2));
+
+      console.log(
+        JSON.parse(
+          `{
+          "name":"shirt",
+          "delivery-time":"1 day",
+          "rating":{
+            "stars":4.5,
+            "count":87
+            }
+          }`,
+        ),
+      );
+
+      // local storage
+      localStorage.setItem("message", "hello");
+      console.log(localStorage.getItem("message"));
+
+      // null vs undefined
+      // null = intentionally want something to be empty
+
+      // auto-boxing (wrapping into object automatically, can't be done with null or undefined)
+      console.log("text".length);
+      console.log("text".toUpperCase());
+
+      // objects are references
+      const obj = product; // copy be reference
+      console.log(obj.name);
+
+      obj.name = "new name for product";
+      console.log(product.name); // same reference changes
+
+      const obj2 = {
+        message: "hello",
+      };
+
+      const obj3 = {
+        message: "hello",
+      };
+
+      console.log(obj2 === obj3); // fasle, different references
+
+      // shortcuts
+      const obj4 = {
+        message: "hello",
+      };
+      const { message } = obj4; // destructuring => const message = obj4.message
+      console.log(message);
+
+      const obj5 = {
+        message, // shorthand property => // message: message,
+        function1() {
+          // shorthand method
+          console.log("method");
+        },
+      };
+      console.log(obj5.message);
+      obj5.function1();
+    </script>
+  </body>
+</html>
