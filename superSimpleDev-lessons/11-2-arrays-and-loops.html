@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Arrays and loops</title>
+    <style></style>
+  </head>
+  <body>
+    <script>
+      // Arrays are references
+      const arr1 = [1, 2];
+      const arr2 = arr1; // copy be reference
+      arr2.push(4);
+      console.log(arr1);
+
+      const arr3 = arr1.slice(); // deep copy
+      console.log(arr3);
+
+      const [x, y, z] = [1, 2, 3]; // array destructuring
+      console.log(x, y, z);
+
+      i = 1;
+      while (true) {
+        if (i % 3 === 0) {
+          i++;
+          continue; // skip the iteration
+        }
+        if (i > 10) {
+          break; // stops the loop
+        }
+        console.log(i++);
+      }
+
+      // functions and loops
+      function doubleArray(nums) {
+        const numsDoubled = [];
+        for (let i = 0; i < nums.length; i++) {
+          const num = nums[i];
+          if(num === 0) {
+            return(numsDoubled); // early stops the function
+          }
+          numsDoubled.push(num * 2);
+        }
+        return(numsDoubled);
+      }
+
+      console.log(doubleArray([2, 2, 6]));
+    </script>
+  </body>
+</html>

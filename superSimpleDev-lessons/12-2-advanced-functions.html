@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Advanced functions</title>
+    <style></style>
+  </head>
+  <body>
+    <button class="js-button">Click</button>
+    <script>
+      // arrow functions
+      const arrowFun = (param) => {
+        console.log(param);
+      };
+      arrowFun("hello");
+
+      // shortucts in arrow functions
+      const oneParam = (param) => {
+        console.log(param + 1);
+      };
+      oneParam(2);
+
+      const oneLine = () => 2 + 3;
+      console.log(oneLine());
+
+      ["make dinner", "wash dishes", "watch youtube"].forEach(
+        (value, index) => {
+          if (value === "wash dishes") {
+            return; // this has the same functionality of continue NOT BREAK, there is bo break functionality in forEach
+          }
+          // index is optional
+          console.log(index + 1, value);
+        },
+      );
+
+      const obj = {
+        method: () => {},
+        method() {},
+      };
+
+      // events and evetlisteners
+      const buttonElement = document.querySelector(".js-button");
+      buttonElement.addEventListener("click", () => {
+        console.log("clicked");
+      });
+
+      const eventListener = () => {
+        console.log("clicked2");
+      };
+
+      buttonElement.addEventListener("click", eventListener); // event listener are better for adding multiple event listeners for the same event
+
+      buttonElement.removeEventListener("click", eventListener); // we can remove event listener
+
+      // filter and map
+      let newArr = [1, 3, -5].filter((value, index) => value > 0);
+      console.log(newArr);
+
+      newArr = [1, 1, 3].map((value, index) => value * 2);
+      console.log(newArr);
+
+      // closure
+      // if function has access to a value, then it will always have  access to that value
+    </script>
+  </body>
+</html>
