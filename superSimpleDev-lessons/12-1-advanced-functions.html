@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Advanced functions</title>
+    <style></style>
+  </head>
+  <body>
+    <script>
+      greeting(); // this version gives us the advantage of hoisting, to call the function anywhere
+
+      function greeting() {
+        console.log("hello");
+      }
+
+      const fun = function greeting() {
+        console.log("hello");
+      }; // hositing does not apply here
+      console.log(fun);
+      console.log(typeof fun);
+      fun();
+
+      const obj = {
+        num: 2,
+        fun: function () {
+          // anonymous function
+          console.log("hello");
+        },
+      };
+      obj.fun();
+
+      function display(param) {
+        console.log(param);
+      }
+      display(2);
+
+      // we can pass a function to function [higher order function]
+      function run(param) {
+        param();
+      }
+
+      run(function () {
+        // the passed function is called a callback
+        console.log("hello, from inside");
+      });
+
+      // asyncronous code
+      setTimeout(function () {
+        // built-in that schedules a function
+        // it is syncronous from inside
+        console.log("timeout");
+        console.log("timeout again");
+      }, 3000);
+
+      console.log("this comes before timeout");
+
+      setInterval(function () {
+        // built-in that that will keep running the function
+        console.log("interval");
+      }, 3000);
+      console.log("this comes first");
+
+      // functions for looping through array [forEach]
+      ["make dinner", "wash dishes", "watch youtube"].forEach(
+        function (value, index) {
+          if (value === "wash dishes") {
+            return; // this has the same functionality of continue NOT BREAK, there is bo break functionality in forEach
+          }
+          // index is optional
+          console.log(index + 1, value);
+        },
+      );
+    </script>
+  </body>
+</html>
