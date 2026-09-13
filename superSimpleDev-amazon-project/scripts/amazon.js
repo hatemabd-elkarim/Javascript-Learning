@@ -1,3 +1,5 @@
+import { cart /*as myCart*/ } from "../data/cart.js";
+
 // save the data
 // generate the HTML
 let productsHTML = "";
