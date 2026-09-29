@@ -35,9 +35,9 @@ class Product {
     return `$${formatCurrency(this.priceCents)}`;
   }
 
-  extraInfoHTML() {
-    return "";
-  }
+    extraInfoHTML() {
+      return "";
+    }
 }
 
 class Clothing extends Product {
@@ -48,46 +48,15 @@ class Clothing extends Product {
     this.sizeChartLink = productDetails.sizeChartLink;
   }
 
-  extraInfoHTML() {
-    // super.extraInfoHTML();
-    return `
-      <a href="${this.sizeChartLink}" target="_blank">
-        Size chart
-      </a>
-    `;
-  }
+    extraInfoHTML() {
+      // super.extraInfoHTML();
+      return `
+        <a href="${this.sizeChartLink}" target="_blank">
+          Size chart
+        </a>
+      `;
+    }
 }
-
-/*
-const date = new Date();
-console.log(date);
-console.log(date.toLocaleTimeString());
-*/
-
-/*
-console.log(this);
-
-const object2 = {
-  a: 2,
-  b: this.a
-};
-*/
-
-/*
-function logThis() {
-  console.log(this);
-}
-logThis();
-logThis.call('hello');
-
-this
-const object3 = {
-  method: () => {
-    console.log(this);
-  }
-};
-object3.method();
-*/
 
 export const products = [
   {
@@ -561,5 +530,8 @@ export const products = [
     keywords: ["sweaters", "hoodies", "apparel", "mens"],
   },
 ].map((productDetails) => {
+  if (productDetails.type === "clothing") {
+    return new Clothing(productDetails);
+  }
   return new Product(productDetails);
 });
