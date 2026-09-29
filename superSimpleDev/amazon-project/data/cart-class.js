@@ -1,19 +1,18 @@
 class Cart {
   item;
-  localStorageKey;
+  #localStorageKey; // private
 
   constructor(loadFromStorageKey) {
     this.localStorageKey = localStorageKey;
-    this.loadFromStorage();
+    this.#loadFromStorage();
   }
 
-  loadFromStorage() {
-    this.items = JSON.parse(localStorage.getItem(this.localStorageKey)) || [];
+  #loadFromStorage() {
+    this.items = JSON.parse(localStorage.getItem(this.#localStorageKey)) || [];
   }
   saveToStorage() {
-    localStorage.setItem(this.localStorageKey, JSON.stringify(this.items));
+    localStorage.setItem(this.#localStorageKey, JSON.stringify(this.items));
   }
-
   addToCart(productId) {
     let matchingItem = "";
     this.items.forEach((item) => {
