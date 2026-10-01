@@ -7,14 +7,21 @@ import { loadCart } from "../data/cart.js";
 loadPage();
 
 async function loadPage() {
-  await loadProductsFetch(); // this function returns a promise, so we can await it
+  try {
+    // throw 'error';
+    await loadProductsFetch(); // this function returns a promise, so we can await it
 
-  const value = await new Promise((resolve) => {
-    loadCart(() => {
-      // this function takes a callback, so we wrap it in a promise
-      resolve();
+    const value = await new Promise((resolve, reject) => {
+      // throw 'error inside a promise';
+      loadCart(() => {
+        // this function takes a callback, so we wrap it in a promise
+        // reject('error inside a promise');
+        resolve();
+      });
     });
-  });
+  } catch (error) {
+    console.log("Error loading products or cart, please try again later.");
+  }
 
   renderOrderSummary();
   renderPaymentSummary();
