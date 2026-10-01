@@ -4,17 +4,33 @@ import "../data/cart-oop.js";
 import { loadProducts, loadProductsFetch } from "../data/products.js";
 import { loadCart } from "../data/cart.js";
 
-Promise.all([
-  loadProductsFetch(),
-  new Promise((resolve) => {
+loadPage();
+
+async function loadPage() {
+  await loadProductsFetch(); // this function returns a promise, so we can await it
+
+  const value = await new Promise((resolve) => {
     loadCart(() => {
-      resolve("anotherValue");
+      // this function takes a callback, so we wrap it in a promise
+      resolve();
     });
-  }),
-]).then((values) => {
+  });
+
   renderOrderSummary();
   renderPaymentSummary();
-});
+}
+
+// Promise.all([
+//   loadProductsFetch(),
+//   new Promise((resolve) => {
+//     loadCart(() => {
+//       resolve("anotherValue");
+//     });
+//   }),
+// ]).then((values) => {
+//   renderOrderSummary();
+//   renderPaymentSummary();
+// });
 
 // new Promise((resolve) => {
 //   loadProducts(() => {
